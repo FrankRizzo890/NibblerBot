@@ -5,6 +5,7 @@ This was the FIRST thing I'd ever written in LUA, so I learned as I went, so the
 was a much more elegant way to do it.  Sorry if this offends you, I just wanted to get the LUA bits done.
 
 And now, the FAQ:
+
 #1 - What IS this?
 It’s a LUA script running inside of MAME playing Nibbler version 9.
 
@@ -49,7 +50,7 @@ Answer: 9 months, and the following technologies:  6502 assembly, C, C++, Python
 
 #14 - Where’s that assembly listing you spoke about in #6?
 Answer: Here!  (Of course, all names come from me).
-
+```
 ROM:3BE6 loc_3BE6:
 ROM:3BE6                 LDA     Head_X_value
 ROM:3BE8                 LDY     headPtr
@@ -86,6 +87,7 @@ ROM:4FE0                 AND     byte_F0
 ROM:4FE2                 BEQ     loc_4FE9
 ROM:4FE4                 LDA     #5
 ROM:4FE6                 JMP     loc_4FEB
+```
 
 #15 - So, having worked on this thing for 9 months, I bet you know a lot about it.  What can you tell us about the game?
 Answer: LOTS.  
