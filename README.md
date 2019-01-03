@@ -94,7 +94,7 @@ Answer: LOTS.
 There are only 8 mazes.  
 But, there are a total of 11 different patterns for the “dots”.  (Not 11 per maze, 11 total).  No maze has more than 3 different patterns for itself, and most of them have less.  
 The 1st 3 levels use the same dot pattern!  If you put your finger on a dot during Wave 1, you’ll see that there’s also a dot there for Waves 2, and 3.
-There are 7 speeds, (2 - 7).  The speeds are represented by the distance the head moves per frame.  The distance COULD match the speed level, I haven’t gotten that deeply into it.  On my simulator, I assumed it did, and it seemed to work.  
+There are 6 speeds, (2 - 7).  The speeds are represented by the distance the head moves per frame.  The distance COULD match the speed level, I haven’t gotten that deeply into it.  On my simulator, I assumed it did, and it seemed to work.  
 There are 2 dipswitch settings, Easy, and Hard.  The difference between them is how soon you get to speed 7.  On Easy, wave 21 is the 1st speed 7 level. On HARD, it’s wave 15.  Once you reach speed 7, it never goes back.  It’s that speed until the end of your game. The waves go from Wave 1 at the start, to Wave 99, and then it repeats waves 80-99 forever.  
 There are really only 32 individual levels, which repeat forever.  (I track that in the metrics).
 If you’re playing the EASY difficulty, There are 34 distinct levels.  (When you consider speeds, mazes, and dot patterns).  Whereas HARD difficulty only has 29.  If you want to be able to handle either, the number is 42.  MANY of the levels are shared between them both.
@@ -111,11 +111,12 @@ Answer - Man vs. Snake reminded me that it existed.  I remembered playing it onc
 #17 - What now?
 Answer:  Now that I have my first bot under my belt, I plan to do OTHERS.  As my skills grow, I plan to do harder games, as that’s really my objective.  Get “revenge” on the games that I was mediocre, or just plain BAD at in the arcades.  I’ve also been talking to a friend involved with video games, and we’ve discussed doing a “computer vision” tied to a set of actuators version of this that plays an actual arcade machine.  Yeah, we’re nerds.  :-)  
 
-
-
 #18 - Did it REALLY take 9 months to do this?
 Short Answer: MOSTLY.  I also changed jobs, moved, and took some time off  in the middle. 
 LONG Answer: The VAST majority of the time was spent on “snake mover” which was my simulator that allowed me to find these freaky patterns.  The issue was that the game runs until the snake bites itself, or runs out of time.  I wasn’t going to deal with time, as I figured if I ground the patterns down to a very few moves, they’d always be fast enough.  The problem isn’t moving the snake forward, it’s moving it BACKWARDS when it bites itself.  You have to rewind it to the last intersection, and find a direction that you haven’t already been.  If all the directions have been tried, you have to rewind back to the previous junction before THAT one.  And maybe move back, and back, and back.  As it’s possible that one of the very early moves was wrong, and you have to rewind ALL the way back to that.  There are LOTS of corner cases!
 
 #19 - What do you think of Tim McVey’s score now?
 Answer: It’s nothing short of incredible!  This game gets FAST, and to be able to make the movements reliably time after time for 48 hours is just insane.  Not to mention having the mental wherewithal to be able to recover for a death to find a pattern that clears the board.  (Something I don’t have to deal with here).
+
+# 20 - Looking at the Maze*.lua files, what's with the format?
+Answer: They're arranged by physical maze (there are 8 of them), and then by dot pattern (up to 4 per maze), and then by speed.  The content of a single line is like this: {address = 0x045d, character = 0x35, action = UP}.  This says to monitor video memory address 0x045D, and watch for the value 0x35 to arrive there.  Once it does, move the joystick UP.  The reason that the "character" field exists, is that the character for the nose of the snake is different for vertical, and horizontal snakes.  (They're rotated after all).
