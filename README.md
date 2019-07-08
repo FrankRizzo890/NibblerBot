@@ -118,5 +118,8 @@ LONG Answer: The VAST majority of the time was spent on “snake mover” which 
 #19 - What do you think of Tim McVey’s score now?
 Answer: It’s nothing short of incredible!  This game gets FAST, and to be able to make the movements reliably time after time for 48 hours is just insane.  Not to mention having the mental wherewithal to be able to recover for a death to find a pattern that clears the board.  (Something I don’t have to deal with here).
 
-# 20 - Looking at the Maze*.lua files, what's with the format?
+#20 - Looking at the Maze*.lua files, what's with the format?
 Answer: They're arranged by physical maze (there are 8 of them), and then by dot pattern (up to 4 per maze), and then by speed.  The content of a single line is like this: {address = 0x045d, character = 0x35, action = UP}.  This says to monitor video memory address 0x045D, and watch for the value 0x35 to arrive there.  Once it does, move the joystick UP.  The reason that the "character" field exists, is that the character for the nose of the snake is different for vertical, and horizontal snakes.  (They're rotated after all).
+
+#21 - Where can I see it in action?
+Answer:  HERE!  https://youtu.be/60gVbJTOUOo
